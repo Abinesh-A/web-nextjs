@@ -17,7 +17,7 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          Get started by Creating New branch oh GitHub{" "}
+          Get started by Creating New branch on GitHub{" "}
         </p>
       </main>
 
