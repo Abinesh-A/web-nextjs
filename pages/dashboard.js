@@ -1,6 +1,5 @@
 import React from 'react'
 function dashboard() {
-    const history=useRouter();
    
     return (
         <div>
