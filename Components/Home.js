@@ -1,6 +1,5 @@
 import Image from "next/image";
-import bg from "C:\\Users\\ELCOT\\Desktop\\Next js project\\web-nextjs\\public\\img\\bg5.jpg";
-import icon from "C:\\Users\\ELCOT\\Desktop\\Next js project\\web-nextjs\\public\\img\\icon.jpg";
+import bg from "../public/img/bg5.jpg";
 import { useRouter } from "next/router";
 import GoogleLogin from "react-google-login";
 import styles from "../styles/Home.module.css";
