@@ -1,6 +1,56 @@
 .bgimg {
   z-index: 0;
 }
-.signinbtndiv {
-  margin-top: -25%;
+.main {
+  display: grid;
+  grid-template-columns: 60% 35% 5%;
+  grid-template-rows: 100% 100% 100%;
+  color: white;
+}
+.signindiv {
+  text-align: center;
+  justify-content: center;
+  margin-top: 25%;
+  margin-left: 25%;
+}
+.signinbtn {
+  border: none;
+  background: gainsboro;
+  border-radius: 5%;
+  padding: 1%;
+  padding-left: 4%;
+  padding-right: 3%;
+  font-weight: 500;
+}
+.column1 {
+  background: linear-gradient(#040720, black);
+}
+.column3 {
+  background: linear-gradient(white, yellow);
+  text-align: center;
+  margin-top: 15%;
+}
+.menu {
+  display: flex;
+  color: gainsboro;
+  font-weight: 500;
+}
+.word1,
+.word2,
+.word3 {
+  color: rgb(179, 177, 177);
+  font-size: 8rem;
+  font-weight: 600;
+}
+.word1 {
+  margin-bottom: -5.5rem;
+}
+.word2 {
+  margin-left: 1rem;
+  margin-bottom: -15rem;
+}
+.word3 {
+  color: red;
+  margin-left: 9rem;
+  margin-top: 1rem;
 }
