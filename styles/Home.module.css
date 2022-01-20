@@ -4,7 +4,7 @@
 .main {
   display: grid;
   grid-template-columns: 60% 35% 5%;
-  grid-template-rows: 100% 100% 100%;
+ 
   color: white;
 }
 .signindiv {
@@ -24,6 +24,7 @@
 }
 .column1 {
   background: linear-gradient(#040720, black);
+  height: 700px
 }
 .column3 {
   background: linear-gradient(white, yellow);
@@ -35,22 +36,43 @@
   color: gainsboro;
   font-weight: 500;
 }
+.dream{
+  position:absolute;
+  bottom: 0;
+
+}
 .word1,
 .word2,
 .word3 {
   color: rgb(179, 177, 177);
-  font-size: 8rem;
+  font-size: 10vw;
   font-weight: 600;
 }
 .word1 {
-  margin-bottom: -5.5rem;
+  margin-bottom: -7vw;
 }
 .word2 {
-  margin-left: 1rem;
-  margin-bottom: -15rem;
+  margin-left: 2vw;
+  margin-bottom: -20vw;
 }
 .word3 {
   color: red;
-  margin-left: 9rem;
-  margin-top: 1rem;
+  margin-left: 12vw;
+  margin-top: 2vw;
+}
+.searchicon{
+  display: none;
+  margin-right: 3rem;
+}
+@media screen  and (max-width:910px){
+  .main{
+    display: block;
+  }
+  .column3{
+    display: none;
+  }
+  .searchicon{
+    display: block;
+
+  }
 }
