@@ -18,4 +18,7 @@ export default function dashboard() {
     </div>
   );
   }
+  return (
+    <h1>Redirecting...</h1>
+  )
 }

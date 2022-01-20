@@ -1,14 +1,16 @@
 
 import GoogleLogin from "react-google-login";
 import { useSelector } from "react-redux";
+import styles from '../styles/Home.module.css'
 
 function GoogleloginComponent(props) {
     const state=useSelector(state=>state);
     const logined=(response)=>{
-       props.signInResponse(true,response.data)
+      console.log(response);
+       props.signinResponse(true,response.profileObj)
     }
     const notlogined=()=>{
-        props.signInResponse(false,null)
+        props.signinResponse(false,null)
     }
     return (
         <div>

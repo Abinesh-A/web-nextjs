@@ -3,20 +3,19 @@ import bg from "../public/img/bg5.jpg";
 import styles from "../styles/Home.module.css";
 import search from "../public/svgs/svg.js"
 import GoogleloginComponent from "./GoogleloginComponent";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { useRouter } from "next/router";
 function Home() {
   const history=useRouter();
-  const state = useSelector(state => state)
  const dispatch = useDispatch()
- const siginResponse=(success,data)=>{
+ const signinResponse=(success,data)=>{
+   console.log(success,data);
    if(success){
+     
     dispatch({type:"SIGNIN",payload:{name:data.name,email:data.email}})
     history.push('/dashboard')
    }
-   else{
-     dispatch({type:"SIGNOUT"})
-   }
+   
  }
   return (
     <>
@@ -40,7 +39,7 @@ function Home() {
           </div>
           <div className={styles.signindiv}>
             <h1>HeLLo HOw u Do.!?</h1>
-            <GoogleloginComponent siginResponse={siginResponse}/>
+            <GoogleloginComponent signinResponse={signinResponse}/>
           </div>
           <div className={styles.dream}>
             <div className={styles.word1}>
