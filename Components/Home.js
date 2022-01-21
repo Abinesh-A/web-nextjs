@@ -1,7 +1,8 @@
 import Image from "next/image";
-import bg from "../public/img/bg5.jpg";
+import bg from "../public/img/bg8.jpg";
 import { useRouter } from "next/router";
 import GoogleLogin from "react-google-login";
+import search from "../public/svgs/svg.js";
 import styles from "../styles/Home.module.css";
 
 function Home({ isAunthenticate, setIsAunthenticate }) {
@@ -42,7 +43,7 @@ function Home({ isAunthenticate, setIsAunthenticate }) {
                   stroke-dashoffset="0"
                   font-family="none"
                   font-weight="none"
-                  font-size="none"
+                  fontSize="none"
                   text-anchor="none"
                   style={{ mixBlendMode: "normal" }}
                 >
@@ -60,6 +61,7 @@ function Home({ isAunthenticate, setIsAunthenticate }) {
               <div style={{ marginRight: "3rem" }}>
                 <p>About</p>
               </div>
+              <div className={styles.searchicon}>{search()}</div>
             </div>
           </div>
           <div className={styles.signindiv}>
@@ -84,7 +86,7 @@ function Home({ isAunthenticate, setIsAunthenticate }) {
               clientId="510258406716-hcdps2qjfkabro5v287ck9477tor4jvb.apps.googleusercontent.com"
             />
           </div>
-          <div>
+          <div className={styles.dream}>
             <div className={styles.word1}>
               <span>D</span>
               <span>R</span>
@@ -98,13 +100,8 @@ function Home({ isAunthenticate, setIsAunthenticate }) {
             </div>
           </div>
         </div>
-        <div>
-          <Image
-            className={styles.bgimg}
-            src={bg}
-            alt="background pic"
-            layout="responsive"
-          />
+        <div className={styles.bgimg}>
+          <Image src={bg} alt="background pic" layout="responsive" />
         </div>
         <div className={styles.column3}>
           <img src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png" />
