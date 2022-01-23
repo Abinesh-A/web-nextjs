@@ -1,19 +1,25 @@
 import Image from "next/image";
 import bg from "../public/img/bg8.jpg";
 import { useRouter } from "next/router";
-import GoogleLogin from "react-google-login";
 import search from "../public/svgs/svg.js";
 import styles from "../styles/Home.module.css";
+import GoogleloginComponent from "./GoogleloginComponent";
+import { useDispatch } from "react-redux";
 
-function Home({ isAunthenticate, setIsAunthenticate }) {
-  let history = useRouter();
-  const logined = () => {
-    setIsAunthenticate(true);
-    history.push("/dashboard{IsAunthenticate}");
-  };
-  const notlogined = () => {
-    setIsAunthenticate(false);
-    console.log("Failed");
+function Home() {
+  const history = useRouter();
+  const dispatch = useDispatch();
+  const signinResponse = (success, data) => {
+    console.log(success, data);
+    dispatch({
+      type: "SIGNIN",
+      payload: {
+        name: data.name,
+        email: data.email,
+        imageUrl: data.imageUrl,
+      },
+    });
+    history.push("/dashboard");
   };
 
   return (
@@ -66,25 +72,7 @@ function Home({ isAunthenticate, setIsAunthenticate }) {
           </div>
           <div className={styles.signindiv}>
             <h1>HeLLo HOw u Do.!?</h1>
-            <GoogleLogin
-              render={(renderProps) => (
-                <div>
-                  <img src="https://img.icons8.com/color/40/000000/google-logo.png" />
-                  <button
-                    className={styles.signinbtn}
-                    onClick={renderProps.onClick}
-                    disabled={renderProps.disabled}
-                  >
-                    Login
-                  </button>
-                </div>
-              )}
-              // buttonText="Login"
-              isSignedIn={isAunthenticate}
-              onSuccess={logined}
-              onFailure={notlogined}
-              clientId="510258406716-hcdps2qjfkabro5v287ck9477tor4jvb.apps.googleusercontent.com"
-            />
+            <GoogleloginComponent signinResponse={signinResponse} />
           </div>
           <div className={styles.dream}>
             <div className={styles.word1}>
