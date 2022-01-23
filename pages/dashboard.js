@@ -1,9 +1,8 @@
-import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-export default function Dashboard() {
+export default function dashboard() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const history = useRouter();
