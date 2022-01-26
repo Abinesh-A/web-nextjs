@@ -1,0 +1,91 @@
+.bgimg {
+  z-index: 0;
+}
+.main {
+  display: grid;
+  grid-template-columns: 60% 35% 5%;
+  grid-template-rows: 100% 100% 100%;
+  color: white;
+}
+.mainnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 3%;
+}
+.signindiv {
+  text-align: center;
+  justify-content: center;
+  margin-top: 20%;
+  margin-left: 25%;
+}
+.signinbtn {
+  border: none;
+  background: gainsboro;
+  border-radius: 5%;
+  padding: 1%;
+  padding-left: 4%;
+  padding-right: 3%;
+  font-weight: 500;
+  color: black;
+}
+.column1 {
+  background: linear-gradient(#040720, black);
+  min-height: 1200px;
+}
+.column3 {
+  background: linear-gradient(white 5%, yellow 65%);
+  text-align: center;
+  margin-top: 25%;
+}
+.menu {
+  display: flex;
+  color: gainsboro;
+  font-weight: 500;
+}
+.dream {
+  position: absolute;
+  bottom: 0;
+}
+.word1,
+.word2,
+.word3 {
+  color: rgb(179, 177, 177);
+  font-size: 10vw;
+  font-weight: 600;
+}
+.word1 {
+  margin-bottom: -7vw;
+}
+.word2 {
+  margin-left: 2vw;
+  margin-bottom: -20vw;
+}
+.word3 {
+  color: red;
+  margin-left: 11.5vw;
+  margin-top: 2vw;
+}
+.searchicon {
+  display: none;
+  margin-right: 3rem;
+}
+@media screen and (max-width: 1000px) {
+  .main {
+    grid-template-columns: 60% 40%;
+  }
+  .column3 {
+    display: none;
+  }
+  .searchicon {
+    display: block;
+  }
+}
+@media screen and (max-width: 850px) {
+  .main {
+    grid-template-columns: 100%;
+  }
+  .bgimg {
+    display: none;
+  }
+}

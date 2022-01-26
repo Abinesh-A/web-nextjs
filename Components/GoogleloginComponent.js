@@ -1,6 +1,6 @@
 import GoogleLogin from "react-google-login";
 import { useSelector } from "react-redux";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Loginpage.module.css";
 
 const GoogleloginComponent = (props) => {
   const state = useSelector((state) => state);

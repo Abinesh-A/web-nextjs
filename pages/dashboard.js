@@ -1,21 +1,17 @@
 import { useRouter } from "next/router";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import Home from "../Components/Home";
 
 export default function Dashboard() {
   const state = useSelector((state) => state);
-  const dispatch = useDispatch();
   const history = useRouter();
   if (!state.isAuthenticate) {
     history.push("/");
   } else {
     return (
       <div>
-        <h1>HEllo Signed in successfully</h1>
-        <h1>Name: {state.data.name}</h1>
-        <h1>Email: {state.data.email}</h1>
-        <img src="https://lh3.googleusercontent.com/a-/AOh14GiojISlq431q529vmKadHwFxoY8aTZvSa6JkEtNuQ=s96-c"></img>
-        <button onClick={() => dispatch({ type: "SIGNOUT" })}>Sign out</button>
+        <Home state={state} />
       </div>
     );
   }
