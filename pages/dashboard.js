@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-export default function dashboard() {
+export default function Dashboard() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const history = useRouter();
