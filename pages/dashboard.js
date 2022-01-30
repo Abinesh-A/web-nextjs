@@ -11,7 +11,7 @@ export default function Dashboard() {
   } else {
     return (
       <>
-        <Home state={state} />
+        <Home />
       </>
     );
   }
