@@ -2,9 +2,9 @@ import Layout from "../Components/Layout";
 import "bootstrap/dist/css/bootstrap.css";
 // import "bootstrap/dist/js/bootstrap.bundle";
 import "../styles/globals.css";
+import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import { persistor, store } from "../Redux/store";
-import { PersistGate } from "redux-persist/integration/react";
 
 function MyApp({ Component, pageProps }) {
   return (

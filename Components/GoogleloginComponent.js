@@ -1,40 +1,39 @@
-
 import GoogleLogin from "react-google-login";
 import { useSelector } from "react-redux";
-import styles from '../styles/Home.module.css'
+import styles from "../styles/Loginpage.module.css";
 
-function GoogleloginComponent(props) {
-    const state=useSelector(state=>state);
-    const logined=(response)=>{
-      console.log(response);
-       props.signinResponse(true,response.profileObj)
-    }
-    const notlogined=()=>{
-        props.signinResponse(false,null)
-    }
-    return (
-        <div>
-            <GoogleLogin
-              render={(renderProps) => (
-                <div>
-                  <img src="https://img.icons8.com/color/40/000000/google-logo.png" />
-                  <button
-                    className={styles.signinbtn}
-                    onClick={renderProps.onClick}
-                    disabled={renderProps.disabled}
-                  >
-                    Login
-                  </button>
-                </div>
-              )}
-              // buttonText="Login"
-              isSignedIn={state.isAuthenticate}
-              onSuccess={logined}
-              onFailure={notlogined}
-              clientId="510258406716-hcdps2qjfkabro5v287ck9477tor4jvb.apps.googleusercontent.com"
-            />
-        </div>
-    )
-}
+const GoogleloginComponent = (props) => {
+  const state = useSelector((state) => state);
+  const logined = (response) => {
+    console.log(response);
+    props.signinResponse(true, response.profileObj);
+  };
+  const notlogined = () => {
+    props.signinResponse(false, null);
+  };
+  return (
+    <>
+      <GoogleLogin
+        render={(renderProps) => (
+          <div>
+            <img src="https://img.icons8.com/color/40/000000/google-logo.png" />
+            <button
+              className={styles.signinbtn}
+              onClick={renderProps.onClick}
+              disabled={renderProps.disabled}
+            >
+              Login
+            </button>
+          </div>
+        )}
+        // buttonText="Login"
+        isSignedIn={state.isAuthenticate}
+        onSuccess={logined}
+        onFailure={notlogined}
+        clientId="510258406716-hcdps2qjfkabro5v287ck9477tor4jvb.apps.googleusercontent.com"
+      />
+    </>
+  );
+};
 
-export default GoogleloginComponent
+export default GoogleloginComponent;
