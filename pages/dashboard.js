@@ -10,9 +10,9 @@ export default function Dashboard() {
     history.push("/");
   } else {
     return (
-      <div>
+      <>
         <Home state={state} />
-      </div>
+      </>
     );
   }
   return (
