@@ -53,6 +53,7 @@
   color: rgb(179, 177, 177);
   font-size: 10vw;
   font-weight: 600;
+  margin-bottom: 2.5vw;
 }
 .word1 {
   margin-bottom: -7vw;
@@ -84,6 +85,9 @@
 @media screen and (max-width: 850px) {
   .main {
     grid-template-columns: 100%;
+  }
+  .dream{
+    margin-bottom: 6vw;
   }
   .bgimg {
     display: none;

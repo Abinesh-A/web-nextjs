@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { evil, pacman } from "../public/svgs/svg";
+import { evil, facebook, instagram, pacman, signout } from "../public/svgs/svg";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -28,10 +28,7 @@ export default function Home() {
             <img className={styles.profilebtn} src={state.data.imageUrl}></img>
           </div>
           <div style={{ cursor: "pointer" }}>
-            <img
-              onClick={() => dispatch({ type: "SIGNOUT" })}
-              src="https://img.icons8.com/external-tal-revivo-regular-tal-revivo/30/000000/external-logout-screen-from-the-working-portfolio-of-a-user-classic-regular-tal-revivo.png"
-            />
+            <a onClick={() => dispatch({ type: "SIGNOUT" })}>{signout()}</a>
           </div>
         </div>
       </div>
@@ -68,6 +65,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      
     </div>
   );
 }

@@ -13,6 +13,8 @@
   color: white;
   background: linear-gradient(#040720, black );
   user-select: none;
+  height: 100vh;
+  text-align: center;
 }
 .profilebtn {
   vertical-align: middle;
@@ -104,18 +106,19 @@
 .bigtext {
   
   transform: rotateX(55deg);
-  font-family: 'Mr Dafoe';
+  /* font-family: 'Mr Dafoe'; */
   /* background: linear-gradient(gray, rgb(54, 54, 54)); */
-  /* background: -webkit-linear-gradient(gray, rgb(54, 54, 54));
+  background: -webkit-linear-gradient(gray, rgb(54, 54, 54));
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
-  text-shadow: 0 0 0.05em rgb(0, 0, 0), 0 0 0.2em #EDD94C, 0 0 0.3em #EDD94C;
+  -webkit-text-fill-color: transparent;
+  /* text-shadow: 0 0 0.05em rgb(0, 0, 0), 0 0 0.2em #EDD94C, 0 0 0.3em #EDD94C; */
   /* filter: blur(8px);
   -webkit-filter: blur(8px); */
 }
 .date {
   font-size: 25px;
   font-weight: 700;
+  text-align: left;
   /* margin-left: 29%; */
   font-style: italic;
   background: black;
@@ -167,8 +170,21 @@
 .boxitem:hover {
   transform: scale(1.1);
 }
-
-@media screen  and (max-width:1020px){
+.footer{
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  /* background-color: rgb(155, 151, 151); */
+  /* color: black; */
+  border-top: 1px solid gray;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  height: 30px;
+  background: linear-gradient(#040720, black );
+}
+@media screen  and (max-width:1050px){
   .boxitem{
     padding: 8%;
   }
@@ -178,7 +194,8 @@
     display: block;
   }
   .column2{
-    padding-left: 3%;
+    /* margin-top: 5%; */
+    padding-left: 2%;
    position: relative;
   }
   .maintext{
@@ -186,6 +203,15 @@
     margin-left: 15%;
     margin-top: -10%;
     
+  }
+  .boxitem{
+    padding: 5%;
+    margin-top: 6%;
+    text-align: center;
+  }
+  .box{
+    padding: 2%;
+    display: block;
   }
   .bigtext{
     filter: blur(6px);
