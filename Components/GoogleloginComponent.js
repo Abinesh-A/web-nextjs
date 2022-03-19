@@ -30,7 +30,7 @@ const GoogleloginComponent = (props) => {
         isSignedIn={state.isAuthenticate}
         onSuccess={logined}
         onFailure={notlogined}
-        clientId="510258406716-hcdps2qjfkabro5v287ck9477tor4jvb.apps.googleusercontent.com"
+        clientId="653420741518-g15dbrajkgn4mlv513edggigqqn804r1.apps.googleusercontent.com"
       />
     </>
   );
