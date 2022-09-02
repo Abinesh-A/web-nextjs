@@ -11,11 +11,10 @@ function Xox() {
   const state = useSelector((state)=>state.xox);
   console.log("test",state)
   const dispatch = useDispatch();
-  // const socket = io("http://localhost:8080")
-  // const socket = io("http://localhost:3000")
-  const socket = io()
-  const connect = async () => {
-    await fetch('/api/socket')
+  const socket = io("https://shielded-ocean-87926.herokuapp.com/")
+  // const socket = io()
+  const connect = () => {
+    // await fetch('/api/socket')
     socket.on("connect", () => {
       console.log(socket.id);
       socket.emit("joinRoom",state.roomcode)
