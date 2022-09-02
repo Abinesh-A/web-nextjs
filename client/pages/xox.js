@@ -5,7 +5,7 @@ import JoinRoom from "../Components/JoinRoom";
 import Xoxboard from "../Components/Xoxboard";
 import { useDispatch, useSelector } from "react-redux";
 
-function xox() {
+function Xox() {
   // const [show, setShow] = useState(false);
   // const [roomcode, setRoomcode] = useState(null);
   const state = useSelector((state)=>state.xox);
@@ -45,4 +45,4 @@ function xox() {
   );
 }
 
-export default xox;
+export default Xox;
