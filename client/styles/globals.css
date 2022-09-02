@@ -1,0 +1,21 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  overflow: hidden;
+  /* background: linear-gradient(#040720, black); */
+  background-image: linear-gradient(to top, #00050d, #000512, #000417, #00031a, #01021d);
+  /* background-image: url(../public/img/main_bg3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; */
+  color: white;
+  height: 100%;
+  
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
