@@ -12,9 +12,7 @@ function Xox() {
   console.log("test",state)
   const dispatch = useDispatch();
   const socket = io("https://shielded-ocean-87926.herokuapp.com/")
-  // const socket = io()
   const connect = () => {
-    // await fetch('/api/socket')
     socket.on("connect", () => {
       console.log(socket.id);
       socket.emit("joinRoom",state.roomcode)
