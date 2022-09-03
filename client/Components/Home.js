@@ -46,7 +46,7 @@ export default function Home({ state }) {
         <div className={styles.column2}>
           <div className={styles.name}>
             <div className={styles.nametext}>
-              {/* <h1>Welcome Back {state.data.name}</h1> */}
+              <h1>Welcome Back {state.data.name}</h1>
             </div>
           </div>
           <div className={styles.date}>

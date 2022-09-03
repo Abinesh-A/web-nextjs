@@ -17,10 +17,10 @@ function Nav() {
             <img className={styles.profilebtn} src={state.data.imageUrl}></img>
           </div>
           <div style={{ cursor: "pointer" }}>
-            {/* <img
+            <img
               onClick={() => dispatch({ type: "SIGNOUT" })}
               src="https://img.icons8.com/external-tal-revivo-regular-tal-revivo/30/000000/external-logout-screen-from-the-working-portfolio-of-a-user-classic-regular-tal-revivo.png"
-            /> */}
+            />
           </div>
         </div>
       </div>
