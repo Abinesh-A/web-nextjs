@@ -40,6 +40,14 @@ function Xox() {
       {state.show && <Xoxboard socket={socket} roomcode={state.roomcode} />}
     </>
   );}
+  return (
+    <div className="d-flex justify-content-center">
+      <div>
+        <Image alt="loading img" src="https://img.icons8.com/color/50/000000/iphone-spinner--v1.png" />
+        <h1>Redirecting...</h1>
+      </div>
+    </div>
+  );
 }
 
 export default Xox;
