@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import styles from "../styles/Loginpage.module.css";
 
 const GoogleloginComponent = (props) => {
-  const dontenv = require("dotenv");
+  const dontenv = require("../dotenv");
   dontenv.config();
 
   const state = useSelector((state) => state);
