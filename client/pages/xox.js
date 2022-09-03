@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { io } from "socket.io-client";
 import Nav from "../Components/Nav";
 import JoinRoom from "../Components/JoinRoom";
