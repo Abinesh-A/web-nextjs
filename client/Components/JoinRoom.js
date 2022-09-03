@@ -16,7 +16,7 @@ function JoinRoom(props) {
   // };
   return (
     <>
-      {!state.xox.show && !state.isAuthenticate &&(
+      {!state.xox.show && state.isAuthenticate &&(
         <div>
           <h1>Enter a room code</h1>
           <input
