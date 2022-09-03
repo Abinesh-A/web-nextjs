@@ -40,7 +40,7 @@ const GoogleloginComponent = (props) => {
         onSuccess={logined}
         onFailure={notlogined}
         cookiePolicy={'single_host_origin'}
-        clientId="653420741518-g15dbrajkgn4mlv513edggigqqn804r1.apps.googleusercontent.com"
+        clientId={process.env.clientId}
         // clientId="510258406716-hcdps2qjfkabro5v287ck9477tor4jvb.apps.googleusercontent.com"
         // clientId="326867438574-fjbedp8rse7jpf9i4kg16vikjug3v9u5.apps.googleusercontent.com"
       />
