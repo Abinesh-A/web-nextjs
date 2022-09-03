@@ -30,7 +30,7 @@ function Xox() {
     });
   };
   const history = useRouter();
-  if (!state.isAuthenticate) {
+  if (state.isAuthenticate) {
     history.push("/");
   }
   return (
