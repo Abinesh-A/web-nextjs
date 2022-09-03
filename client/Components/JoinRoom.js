@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 function JoinRoom(props) {
   const [code, setCode] = useState(null);
-  const state = useSelector((state) => state.xox);
+  const state = useSelector((state) => state);
   const handlesubmit = () => {
     props.xoxresponse({
       show: true,
@@ -16,7 +16,7 @@ function JoinRoom(props) {
   // };
   return (
     <>
-      {!state.show && (
+      {!state.xox.show && !state.isAuthenticate(
         <div>
           <h1>Enter a room code</h1>
           <input
