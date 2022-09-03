@@ -28,6 +28,10 @@ function Xox() {
       },
     });
   };
+  const history = useRouter();
+  if (!state.isAuthenticate) {
+    history.push("/");
+  }
   return (
     <>
       <Nav />
