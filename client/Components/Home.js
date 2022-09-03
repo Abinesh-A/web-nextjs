@@ -59,7 +59,7 @@ export default function Home({ state }) {
             </span>
           </div>
           <div className={styles.box}>
-            <div className={styles.boxitem} onClick={() => router.push("/xox")}>
+            <div className={styles.boxitem} onClick={() => router.push("/dashboard/xox")}>
               XOXOX
             </div>
             <div className={styles.boxitem}>HANDCRICKET</div>
