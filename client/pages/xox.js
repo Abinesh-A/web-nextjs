@@ -3,6 +3,7 @@ import { io } from "socket.io-client";
 import Nav from "../Components/Nav";
 import JoinRoom from "../Components/JoinRoom";
 import Xoxboard from "../Components/Xoxboard";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 
