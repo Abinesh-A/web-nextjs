@@ -59,7 +59,7 @@ export default function Home({ state }) {
             </span>
           </div>
           <div className={styles.box}>
-            <div className={styles.boxitem} onClick={() => router.push("/dashboard/xox")}>
+            <div className={styles.boxitem} onClick={() => state.isAuthenticate ? router.push("/xox"): router.push("/")}>
               XOXOX
             </div>
             <div className={styles.boxitem}>HANDCRICKET</div>
