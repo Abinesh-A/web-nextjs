@@ -13,7 +13,7 @@ function Xox() {
   const state = useSelector((state) => state.xox);
   console.log("test", state);
   const dispatch = useDispatch();
-  const socket = io("https://x-server.vercel.app/");
+  const socket = io("https://shielded-ocean-87926.herokuapp.com/");
   useEffect(() => {
     socket.on("connect", () => {
       console.log(socket.id);
