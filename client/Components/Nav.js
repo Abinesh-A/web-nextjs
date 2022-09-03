@@ -5,9 +5,9 @@ import styles from "../styles/Home.module.css";
 
 function Nav() {
   const dispatch = useDispatch();
+  const history = useRouter();
   const state = useSelector((state) => state);
   useEffect(() => {
-    const history = useRouter();
     if (state.isAuthenticate) {
       history.push("/");
     }
