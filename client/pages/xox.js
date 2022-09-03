@@ -12,14 +12,11 @@ function Xox() {
   console.log("test",state)
   const dispatch = useDispatch();
   const socket = io("https://shielded-ocean-87926.herokuapp.com/")
-  const connect = () => {
+  useEffect(() => {
     socket.on("connect", () => {
       console.log(socket.id);
       socket.emit("joinRoom",state.roomcode)
     });
-  };
-  useEffect(() => {
-    connect();
   }, []);
   const xoxresponse = (data) => {
     console.log("datasss",data);
