@@ -4,6 +4,7 @@ import Nav from "../Components/Nav";
 import JoinRoom from "../Components/JoinRoom";
 import Xoxboard from "../Components/Xoxboard";
 import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 function Xox() {
   // const [show, setShow] = useState(false);
