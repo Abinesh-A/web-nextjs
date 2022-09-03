@@ -8,35 +8,37 @@ import { useDispatch, useSelector } from "react-redux";
 function Xox() {
   // const [show, setShow] = useState(false);
   // const [roomcode, setRoomcode] = useState(null);
-  const state = useSelector((state)=>state.xox);
-  console.log("test",state)
+  const state = useSelector((state) => state.xox);
+  console.log("test", state);
   const dispatch = useDispatch();
-  const socket = io("https://shielded-ocean-87926.herokuapp.com/")
+  const socket = io("https://shielded-ocean-87926.herokuapp.com/");
   useEffect(() => {
     socket.on("connect", () => {
       console.log(socket.id);
-      socket.emit("joinRoom",state.roomcode)
+      socket.emit("joinRoom", state.roomcode);
     });
   }, []);
   const xoxresponse = (data) => {
-    console.log("datasss",data);
+    console.log("datasss", data);
     dispatch({
       type: "XOX",
       payload: {
         show: data.show,
-        roomcode: data.roomcode
+        roomcode: data.roomcode,
       },
     });
   };
+  const history = useRouter();
+  if (!state.isAuthenticate) {
+    history.push("/");
+  }else{
   return (
     <>
       <Nav />
-      <JoinRoom xoxresponse={xoxresponse}/>
-      {state.show && (
-       <Xoxboard socket={socket} roomcode={state.roomcode}/>
-      )}
+      <JoinRoom xoxresponse={xoxresponse} />
+      {state.show && <Xoxboard socket={socket} roomcode={state.roomcode} />}
     </>
-  );
+  );}
 }
 
 export default Xox;
