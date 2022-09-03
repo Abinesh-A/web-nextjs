@@ -8,7 +8,7 @@ function Nav() {
   const history = useRouter();
   const state = useSelector((state) => state);
   useEffect(() => {
-    if (state.isAuthenticate) {
+    if (!state.isAuthenticate) {
       history.push("/");
     }
   });
