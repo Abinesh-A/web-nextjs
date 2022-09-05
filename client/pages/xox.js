@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import Nav from "../Components/Nav";
 import JoinRoom from "../Components/JoinRoom";
 import Xoxboard from "../Components/Xoxboard";
