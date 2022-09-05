@@ -5,8 +5,8 @@ import Home from "../Components/Home";
 export default function Index() {
   return (
     <>
-      <Loginpage />
-      {/* <Home /> */}
+      {/* <Loginpage /> */}
+      <Home />
     </>
   );
 }

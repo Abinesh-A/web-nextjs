@@ -1,28 +1,32 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import styles from "../styles/Xox.module.css";
 
-function JoinRoom(props) {
-  const [code, setCode] = useState(null);
-  const state = useSelector((state) => state);
+function JoinRoom({socket, setCode}) {
+  const [codes, setCodes] = useState(null);
+  const state = useSelector((state) => state.xox);
   const handlesubmit = () => {
-    props.xoxresponse({
-      show: true,
-      roomcode: code
-    })
-  }
-  // const handlesubmit = () => {
-  //   setShow(true);
-  //   setRoomcode(code);
-  // };
+    setCode(codes)
+    dispatch({
+      type: "XOX",
+      payload: {
+        show: true,
+        roomcode: codes
+      },
+    });
+  };
   return (
     <>
-      {!state.xox.show && state.isAuthenticate &&(
-        <div>
-          <h1>Enter a room code</h1>
+      {!state.show && (
+        <div className={styles.roomdiv}>
+          <div className={styles.rtext}>
+            <h1>Enter a room code</h1>
+            <h1>To create or join</h1>
+          </div>
           <input
             type="number"
             placeholder="eg: 1212"
-            onChange={(e) => setCode(e.target.value)}
+            onChange={(e) => setCodes(e.target.value)}
           />
           <button onClick={handlesubmit}>Save</button>
         </div>

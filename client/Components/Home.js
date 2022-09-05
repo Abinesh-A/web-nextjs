@@ -17,24 +17,25 @@ export default function Home({ state }) {
   };
 
   return (
-    <div className={styles.home}>
+    <>
       <Nav />
-      <div className={styles.mains}>
-        <div className={styles.column1}>
-          <div className={styles.dream}>
-            <div className={styles.word1}>
-              <span>△</span>
-              <span>X</span>
+      <div className={styles.home}>
+        <div className={styles.mains}>
+          <div className={styles.column1}>
+            <div className={styles.dream}>
+              <div className={styles.word1}>
+                <span>△</span>
+                <span>X</span>
+              </div>
+              <div className={styles.word2}>
+                <span>O</span>
+                <span>▽</span>
+              </div>
+              <div className={styles.word3}>
+                <span>▢</span>
+              </div>
             </div>
-            <div className={styles.word2}>
-              <span>O</span>
-              <span>▽</span>
-            </div>
-            <div className={styles.word3}>
-              <span>▢</span>
-            </div>
-          </div>
-          {/* <div className={styles.maintext}>
+            {/* <div className={styles.maintext}>
             <div className={styles.text}>
               <div className={styles.bigtext}>
                 <p>CYBER</p>
@@ -42,31 +43,41 @@ export default function Home({ state }) {
               </div>
             </div>
           </div> */}
-        </div>
-        <div className={styles.column2}>
-          <div className={styles.name}>
-            <div className={styles.nametext}>
-              <h1>Welcome Back {state.data.name}</h1>
-            </div>
           </div>
-          <div className={styles.date}>
-            <span className={styles.xo}>x &lt; x &lt; </span>
-            <span>{getCurrentDate()}</span>
-            <span style={{ float: "right" }}>
-              {pacman()}
-              <span className={styles.dot}>* * *</span>
-              <span>{evil()}</span>
-            </span>
-          </div>
-          <div className={styles.box}>
-            <div className={styles.boxitem} onClick={() => state.isAuthenticate ? router.push("/xox"): router.push("/")}>
-              XOXOX
+          <div className={styles.column2}>
+            <div className={styles.name}>
+              <div className={styles.nametext}>
+                <h1>Welcome Back {state.data.name}</h1>
+              </div>
             </div>
-            <div className={styles.boxitem}>HANDCRICKET</div>
-            <div className={styles.boxitem}>PACMAN</div>
+            <div className={styles.date}>
+              <span className={styles.xo}>x &lt; x &lt; </span>
+              <span>{getCurrentDate()}</span>
+              <span style={{ float: "right" }}>
+                {pacman()}
+                <span className={styles.dot}>* * *</span>
+                <span>{evil()}</span>
+              </span>
+            </div>
+            <div className={styles.box}>
+              <div className={styles.boxdiv}>
+                <div
+                  className={styles.boxitem}
+                  onClick={() =>
+                    state.isAuthenticate
+                      ? router.push("/xox")
+                      : router.push("/")
+                  }
+                >
+                  XOXOX
+                </div>
+                <div className={styles.boxitem}>HANDCRICKET</div>
+                <div className={styles.boxitem}>PACMAN</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

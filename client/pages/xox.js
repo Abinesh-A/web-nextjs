@@ -1,35 +1,19 @@
-import React, { useEffect } from "react";
-import { io } from "socket.io-client";
+import React, { useEffect, useState } from "react";
 import Nav from "../Components/Nav";
 import JoinRoom from "../Components/JoinRoom";
 import Xoxboard from "../Components/Xoxboard";
-import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from "next/router";
-import Image from "next/image";
+import { useSelector } from "react-redux";
+import { io } from "socket.io-client";
 
 function Xox() {
-  // const [show, setShow] = useState(false);
-  // const [roomcode, setRoomcode] = useState(null);
-  const state = useSelector((state) => state.xox);
-  console.log("test", state);
-  const dispatch = useDispatch();
-  const socket = io("https://shielded-ocean-87926.herokuapp.com/");
+  const socket = io.connect("https://shielded-ocean-87926.herokuapp.com/")
+  const state = useSelector((state)=>state.xox);
+  const [code, setCode] = useState(null);
+
   useEffect(() => {
-    socket.on("connect", () => {
-      console.log(socket.id);
-      socket.emit("joinRoom", state.roomcode);
-    });
-  }, []);
-  const xoxresponse = (data) => {
-    console.log("datasss", data);
-    dispatch({
-      type: "XOX",
-      payload: {
-        show: data.show,
-        roomcode: data.roomcode,
-      },
-    });
-  };
+    socket.emit("joinRoom",code)
+    console.log("joined",code)
+  }, [code]);
   const history = useRouter();
   if (state.isAuthenticate) {
     history.push("/");
@@ -37,8 +21,10 @@ function Xox() {
     return (
       <>
         <Nav />
-        <JoinRoom xoxresponse={xoxresponse} />
-        {state.show && <Xoxboard socket={socket} roomcode={state.roomcode} />}
+        <JoinRoom socket={socket} setCode={setCode}/>
+        {state.show && (
+         <Xoxboard socket={socket} roomcode={code}/>
+        )}
       </>
     );
   }
@@ -52,7 +38,7 @@ function Xox() {
         <h1>Redirecting...</h1>
       </div>
     </div>
-  );
+ 
 }
 
 export default Xox;
