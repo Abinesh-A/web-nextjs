@@ -38,7 +38,7 @@ function Xox() {
         <h1>Redirecting...</h1>
       </div>
     </div>
- 
+  )
 }
 
 export default Xox;
