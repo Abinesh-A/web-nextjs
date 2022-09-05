@@ -17,8 +17,9 @@ export default function Home({ state }) {
   };
 
   return (
+    <>
+    <Nav />
     <div className={styles.home}>
-      <Nav />
       <div className={styles.mains}>
         <div className={styles.column1}>
           <div className={styles.dream}>
@@ -59,14 +60,17 @@ export default function Home({ state }) {
             </span>
           </div>
           <div className={styles.box}>
-            <div className={styles.boxitem} onClick={() => router.push("/xox")}>
-              XOXOX
+            <div className={styles.boxdiv}>
+              <div className={styles.boxitem} onClick={() => router.push("/xox")}>
+                XOXOX
+              </div>
+              <div className={styles.boxitem}>HANDCRICKET</div>
+              <div className={styles.boxitem}>PACMAN</div>
             </div>
-            <div className={styles.boxitem}>HANDCRICKET</div>
-            <div className={styles.boxitem}>PACMAN</div>
           </div>
         </div>
       </div>
     </div>
+    </>
   );
 }

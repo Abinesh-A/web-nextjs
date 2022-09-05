@@ -12,7 +12,7 @@ function Xoxboard({ socket, roomcode }) {
           setCanplay(true)
         })
         return () => socket.off("updategame");
-      },[])
+      })
       const handleCellClick=(e)=>{
         const id=e.currentTarget.id
         console.log(id)
@@ -83,12 +83,12 @@ function Xoxboard({ socket, roomcode }) {
               </div>
             </div>
           </div>
-          <div className={styles.xox2}>
-            {/* <img src="https://img.icons8.com/stickers/100/000000/spinner-frame-1.png" /> */}
+          {/* <div className={styles.xox2}>
+            <img src="https://img.icons8.com/stickers/100/000000/spinner-frame-1.png" />
           </div>
           <div className={styles.xox3}>
             <h3>SCORE</h3>
-          </div>
+          </div> */}
         </div>
         </>
     );

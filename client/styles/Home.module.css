@@ -8,7 +8,7 @@
 }
 .home {
   user-select: none;
-  height: 100vh;
+  /* height: 100vh; */
 }
 .menu {
   display: flex;
@@ -139,9 +139,6 @@
   font-size: 10px;
 }
 .box {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-around;
   padding: 3%;
   margin-top: 4%;
   margin-bottom: 3%;
@@ -156,6 +153,11 @@
     0 0 102px #6577b3,
     0 0 151px #6577b3; */
 }
+.boxdiv{
+  /* border: 1px solid violet; */
+  display: flex;
+  justify-content: center;
+}
 .boxitem {
   width:300px;
   display:inline-block;
@@ -163,7 +165,10 @@
   position:relative;
   z-index: 0;
   padding: 10%;
-  margin-left: 4%;
+  margin: 3%;
+  margin-left: 1vw;
+  text-align: center;
+  transition: all 0.1s ease-in;
 }
 .boxitem:before {
   content: "";
@@ -225,9 +230,14 @@
 }
 @media screen and (max-width: 1020px) {
   .boxitem {
-    padding: 8%;
     height: 50px;
   }
+  .boxitem:before {
+    clip-path: polygon(0 20.00px,20.00px 0,100% 0,100% calc(100% - 20.00px),calc(100% - 20.00px) 100%,0 100%,0 20.00px,4px  calc(20.00px + 2.49px),4px calc(100% - 4px),calc(100% - 20.00px - 2.49px) calc(100% - 4px),calc(100% - 4px) calc(100% - 20.00px - 2.49px),calc(100% - 4px) 4px,calc(20.00px + 2.49px) 4px,4px calc(20.00px + 2.49px));
+  }
+  /* .boxdiv{    
+    flex-wrap: wrap;
+  } */
 }
 @media screen and (max-width: 900px) {
   .mains {
@@ -288,8 +298,8 @@
     padding-left: 3%;
   }
 }
-@media screen and (max-width: 700px) {
-  .boxitem {
+@media screen and (max-width: 600px) {
+  /* .boxitem {
     padding: 5%;
     margin-top: 6%;
     text-align: center;
@@ -297,5 +307,8 @@
   .box {
     padding: 2%;
     display: block;
+  } */
+  .boxdiv{    
+    flex-wrap: wrap;
   }
 }

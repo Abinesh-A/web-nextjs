@@ -1,42 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { io } from "socket.io-client";
 import Nav from "../Components/Nav";
 import JoinRoom from "../Components/JoinRoom";
 import Xoxboard from "../Components/Xoxboard";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { io } from "socket.io-client";
 
 function Xox() {
-  // const [show, setShow] = useState(false);
-  // const [roomcode, setRoomcode] = useState(null);
+  const socket = io.connect("https://shielded-ocean-87926.herokuapp.com/")
   const state = useSelector((state)=>state.xox);
-  console.log("test",state)
-  const dispatch = useDispatch();
-  const socket = io("https://shielded-ocean-87926.herokuapp.com/")
-  const connect = () => {
-    socket.on("connect", () => {
-      console.log(socket.id);
-      socket.emit("joinRoom",state.roomcode)
-    });
-  };
+  const [code, setCode] = useState(null);
+
   useEffect(() => {
-    connect();
-  }, []);
-  const xoxresponse = (data) => {
-    console.log("datasss",data);
-    dispatch({
-      type: "XOX",
-      payload: {
-        show: data.show,
-        roomcode: data.roomcode
-      },
-    });
-  };
+    socket.emit("joinRoom",code)
+    console.log("joined",code)
+  }, [code]);
   return (
     <>
       <Nav />
-      <JoinRoom xoxresponse={xoxresponse}/>
+      <JoinRoom socket={socket} setCode={setCode}/>
       {state.show && (
-       <Xoxboard socket={socket} roomcode={state.roomcode}/>
+       <Xoxboard socket={socket} roomcode={code}/>
       )}
     </>
   );
