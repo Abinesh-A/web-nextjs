@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import styles from "../styles/Xox.module.css";
 
-function JoinRoom({socket, setCode}) {
+function JoinRoom({setCode}) {
   const [codes, setCodes] = useState(null);
   const state = useSelector((state) => state.xox);
   const handlesubmit = () => {

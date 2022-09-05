@@ -6,13 +6,12 @@ import { useSelector } from "react-redux";
 import { io } from "socket.io-client";
 
 function Xox() {
-  const socket = io.connect("https://shielded-ocean-87926.herokuapp.com/")
-  const state = useSelector((state)=>state.xox);
+  const socket = io.connect("https://shielded-ocean-87926.herokuapp.com/");
+  const state = useSelector((state) => state.xox);
   const [code, setCode] = useState(null);
 
   useEffect(() => {
-    socket.emit("joinRoom",code)
-    console.log("joined",code)
+    socket.emit("joinRoom", state.roomcode);
   }, [code]);
   const history = useRouter();
   if (state.isAuthenticate) {
@@ -21,10 +20,8 @@ function Xox() {
     return (
       <>
         <Nav />
-        <JoinRoom socket={socket} setCode={setCode}/>
-        {state.show && (
-         <Xoxboard socket={socket} roomcode={code}/>
-        )}
+        <JoinRoom setCode={setCode} />
+        {state.show && <Xoxboard socket={socket} roomcode={code} />}
       </>
     );
   }
@@ -38,7 +35,7 @@ function Xox() {
         <h1>Redirecting...</h1>
       </div>
     </div>
-  )
+  );
 }
 
 export default Xox;

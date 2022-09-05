@@ -5,9 +5,7 @@ function Xoxboard({ socket, roomcode }) {
     const[board,setBoard]=useState(["","","","","","","","",""])
     const[canplay,setCanplay]=useState(true)
     useEffect(()=>{
-      console.log("two")
         socket.on("updategame",(id)=>{
-          console.log("UE",id)
           setBoard((data)=>({...data,[id]:"O"}))
           setCanplay(true)
         })
@@ -15,7 +13,6 @@ function Xoxboard({ socket, roomcode }) {
       })
       const handleCellClick=(e)=>{
         const id=e.currentTarget.id
-        console.log(id)
         if(canplay && board[id]===""){
           setBoard((data)=>({...data,[id]:"X"}))
           socket.emit("play",{id,roomcode})
