@@ -4,6 +4,7 @@ import JoinRoom from "../Components/JoinRoom";
 import Xoxboard from "../Components/Xoxboard";
 import { useSelector } from "react-redux";
 import { io } from "socket.io-client";
+import { useRouter } from "next/router";
 
 function Xox() {
   const socket = io.connect("https://shielded-ocean-87926.herokuapp.com/");
