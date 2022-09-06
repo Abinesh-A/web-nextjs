@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../styles/Xox.module.css";
 
-function JoinRoom({socket, setCode}) {
+function JoinRoom({setCode}) {
   const [codes, setCodes] = useState(null);
   const state = useSelector((state) => state.xox);
- 
   const dispatch = useDispatch();
   const handlesubmit = () => {
     setCode(codes)
