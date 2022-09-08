@@ -9,11 +9,11 @@ import { useRouter } from "next/router";
 
 function Xox() {
   const socket = io.connect("https://shielded-ocean-87926.herokuapp.com/");
-  const state = useSelector((state) => state.xox);
+  const state = useSelector((state) => state);
   const [code, setCode] = useState(null);
 
   useEffect(() => {
-    socket.emit("joinRoom", state.roomcode);
+    socket.emit("joinRoom", state.xox.roomcode);
   }, [code]);
   const history = useRouter();
   if (state.isAuthenticate) {
@@ -23,7 +23,7 @@ function Xox() {
       <>
         <Nav />
         <JoinRoom setCode={setCode} />
-        {state.show && <Xoxboard socket={socket} roomcode={code} />}
+        {state.xox.show && <Xoxboard socket={socket} roomcode={code} />}
       </>
     );
   }

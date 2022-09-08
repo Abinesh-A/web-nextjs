@@ -1,9 +1,10 @@
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 import { evil, pacman } from "../public/svgs/svg";
 import styles from "../styles/Home.module.css";
-import Nav from "./Nav";
 
-export default function Home({ state }) {
+export default function Home() {
+  const state = useSelector((state) => state);
   const router = useRouter();
   const getCurrentDate = (separator = "/") => {
     let newDate = new Date();
@@ -72,7 +73,11 @@ export default function Home({ state }) {
                   XOXOX
                 </div>
                 <div className={styles.boxitem}>HANDCRICKET</div>
-                <div className={styles.boxitem}>PACMAN</div>
+                <div className={styles.boxitem}  onClick={() =>
+                    state.isAuthenticate
+                      ? router.push("/pacman")
+                      : router.push("/")
+                  }>PACMAN</div>
               </div>
             </div>
           </div>

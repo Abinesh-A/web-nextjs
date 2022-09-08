@@ -1,18 +1,16 @@
 import { useRouter } from "next/router";
 import React from "react";
-import { useSelector } from "react-redux";
 import Home from "../Components/Home";
 import Image from "next/image";
 
 export default function Dashboard() {
-  const state = useSelector((state) => state);
   const history = useRouter();
   if (!state.isAuthenticate) {
     history.push("/");
   } else {
     return (
       <>
-        <Home state={state} />
+        <Home />
       </>
     );
   }
