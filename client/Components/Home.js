@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 import { evil, pacman } from "../public/svgs/svg";
 import styles from "../styles/Home.module.css";
+import Nav from "./Nav";
 
 export default function Home() {
   const state = useSelector((state) => state);
