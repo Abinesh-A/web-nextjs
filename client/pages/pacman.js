@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 function Pacman(props) {
-    return (
-        <div>
-<h1>Hell world</h1>
-        </div>
-    );
+  return (
+    <div>
+      <h1>Hell world</h1>
+    </div>
+  );
 }
 
 export default Pacman;

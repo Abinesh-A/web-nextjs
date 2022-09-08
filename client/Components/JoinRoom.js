@@ -1,9 +1,11 @@
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../styles/Xox.module.css";
 
 function JoinRoom({ setCode }) {
   const [codes, setCodes] = useState(null);
+  const router=useRouter()
   const state = useSelector((state) => state.xox);
   const dispatch = useDispatch();
   const handlesubmit = () => {
@@ -27,9 +29,13 @@ function JoinRoom({ setCode }) {
           <input
             type="number"
             placeholder="eg: 1212"
+            className={styles.roomint}
             onChange={(e) => setCodes(e.target.value)}
           />
-          <button onClick={handlesubmit}>Save</button>
+          <div>
+            <button className={styles.playbtn + " " + styles.playbtndiv} onClick={()=>router.push('/')}>BACK</button>
+            <button className={styles.backbtn + " " + styles.playbtndiv} onClick={handlesubmit}>PLAY</button>
+          </div>
         </div>
       )}
     </>

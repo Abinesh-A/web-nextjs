@@ -89,7 +89,26 @@
   border: 2px solid red;
   text-align: center;
 }
-
+.roomint{
+  background: whitesmoke;
+  border: 2px solid rgb(50, 104, 205);
+  padding: 0.3%;
+  border-radius: 5px;
+}
+.playbtndiv{
+  border: 1px solid white;
+  background: rgb(15, 15, 15);
+  color: white;
+  border-radius: 3px;
+  margin-top: 20%;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-weight: bold;
+  font-style: italic;
+}
+.backbtn{
+  margin-left: 25px;
+}
 /* @media screen and (max-width: 1000px) {
   .main {
     grid-template-columns: 60% 40%;
