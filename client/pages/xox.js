@@ -23,7 +23,7 @@ function Xox() {
       <>
         <Nav />
         <JoinRoom setCode={setCode} />
-        {state.xox.show && <Xoxboard socket={socket} roomcode={code} />}
+        {state.xox.show && <Xoxboard socket={socket} roomcode={state.xox.roomcode} />}
       </>
     );
   }
