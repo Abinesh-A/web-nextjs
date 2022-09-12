@@ -1,5 +1,5 @@
 const initialState = {
-  isAuthenticate: false,
+  isAuthenticate: true,
   data: {
     name: "",
     email: "",
