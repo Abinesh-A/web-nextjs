@@ -13,7 +13,7 @@ function Xoxboard({ socket, roomcode }) {
           dispatch({
             type: "SETBOARD",
             payload: {
-              board: ({...xoxcontrol.board,[id]:"O"}),
+              board: {...xoxcontrol.board,[id]:"O"},
               canplay: true,
             },
           });
@@ -28,7 +28,7 @@ function Xoxboard({ socket, roomcode }) {
           dispatch({
             type: "SETBOARD",
             payload: {
-              board: ({...xoxcontrol.board,[id]:"X"}),
+              board: {...xoxcontrol.board,[id]:"X"},
               canplay: false,
             },
           });

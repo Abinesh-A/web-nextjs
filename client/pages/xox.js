@@ -7,14 +7,17 @@ import { useSelector } from "react-redux";
 import { io } from "socket.io-client";
 import { useRouter } from "next/router";
 
+const socket = io.connect("http://localhost:8080");
+
 function Xox() {
-  const socket = io.connect("https://shielded-ocean-87926.herokuapp.com/");
-  // const socket = io.connect("http://localhost:8080");
+  // const socket = io.connect("https://shielded-ocean-87926.herokuapp.com/");
   const state = useSelector((state) => state);
   const [code, setCode] = useState(null);
 
   useEffect(() => {
+    if (code) {
     socket.emit("joinRoom", state.xox.roomcode);
+    }
     console.log("joined",state.xox.roomcode)
   }, [code]);
   const history = useRouter();
