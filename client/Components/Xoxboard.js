@@ -1,29 +1,48 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from "../styles/Xox.module.css";
 
 function Xoxboard({ socket, roomcode }) {
     const[board,setBoard]=useState(["","","","","","","","",""])
-    const[canplay,setCanplay]=useState(true)
+    // const[canplay,setCanplay]=useState(true)
+    const xoxcontrol = useSelector((state) => state.xoxcontrol);
+    console.log(xoxcontrol.board)
+    const dispatch = useDispatch();
     useEffect(()=>{
         socket.on("updategame",(id)=>{
+          console.log(id)
+          dispatch({
+            type: "SETBOARD",
+            payload: {
+              board: {...xoxcontrol.board,[id]:"O"},
+              canplay: true,
+            },
+          });
           setBoard((data)=>({...data,[id]:"O"}))
-          setCanplay(true)
+          // setCanplay(true)
         })
         return () => socket.off("updategame");
-      })
+      },[])
       const handleCellClick=(e)=>{
         const id=e.currentTarget.id
-        if(canplay && board[id]===""){
+        if(xoxcontrol.canplay && xoxcontrol.board[id]===""){
+          dispatch({
+            type: "SETBOARD",
+            payload: {
+              board: {...xoxcontrol.board,[id]:"X"},
+              canplay: false,
+            },
+          });
           setBoard((data)=>({...data,[id]:"X"}))
           socket.emit("play",{id,roomcode})
-          setCanplay(false)
+          // setCanplay(false)
         }
-        if (
-          (board[0] === "X" && board[1] === "X" && board[2] === "X") ||
-          (board[0] === "O" && board[1] === "O" && board[2] === "O")
-        ) {
-          setBoard(["", "", "", "", "", "", "", "", ""]);
-        }
+        // if (
+        //   (board[0] === "X" && board[1] === "X" && board[2] === "X") ||
+        //   (board[0] === "O" && board[1] === "O" && board[2] === "O")
+        // ) {
+        //   setBoard(["", "", "", "", "", "", "", "", ""]);
+        // }
       }
     return (
         <>
@@ -33,35 +52,35 @@ function Xoxboard({ socket, roomcode }) {
               <div>
                 <div className="d-flex">
                   <div onClick={handleCellClick} id="0" className={styles.boxL + " " + styles.boxT}>
-                    <h1>{board[0]}</h1>
+                    <h1>{xoxcontrol.board[0]}</h1>
                   </div>
                   <div onClick={handleCellClick} id="1" className={styles.boxT}>
-                    <h1>{board[1]}</h1>
+                    <h1>{xoxcontrol.board[1]}</h1>
                   </div>
                   <div onClick={handleCellClick} id="2" className={styles.boxR + " " + styles.boxT}>
-                    <h1>{board[2]}</h1>
+                    <h1>{xoxcontrol.board[2]}</h1>
                   </div>
                 </div>
                 <div className="d-flex">
                   <div onClick={handleCellClick} id="3" className={styles.boxL}>
-                    <h1>{board[3]}</h1>
+                    <h1>{xoxcontrol.board[3]}</h1>
                   </div>
                   <div onClick={handleCellClick} id="4" className={styles.boxT}>
-                    <h1>{board[4]}</h1>
+                    <h1>{xoxcontrol.board[4]}</h1>
                   </div>
                   <div onClick={handleCellClick} id="5" className={styles.boxR}>
-                    <h1>{board[5]}</h1>
+                    <h1>{xoxcontrol.board[5]}</h1>
                   </div>
                 </div>
                 <div className="d-flex">
                   <div onClick={handleCellClick} id="6" className={`${styles.boxL} ${styles.boxB}`}>
-                    <h1>{board[6]}</h1>
+                    <h1>{xoxcontrol.board[6]}</h1>
                   </div>
                   <div onClick={handleCellClick} id="7" className={styles.boxT + " " + styles.boxB}>
-                    <h1>{board[7]}</h1>
+                    <h1>{xoxcontrol.board[7]}</h1>
                   </div>
                   <div onClick={handleCellClick} id="8" className={styles.boxR + " " + styles.boxB}>
-                    <h1>{board[8]}</h1>
+                    <h1>{xoxcontrol.board[8]}</h1>
                   </div>
                 </div>
               </div>

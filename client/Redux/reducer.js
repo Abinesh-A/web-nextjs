@@ -1,5 +1,5 @@
 const initialState = {
-  isAuthenticate: false,
+  isAuthenticate: true,
   data: {
     name: "",
     email: "",
@@ -8,6 +8,11 @@ const initialState = {
   xox:{
     show:false,
     roomcode:"",
+  },
+  board:["", "", "", "", "", "", "", "", ""],
+  xoxcontrol:{
+    board:["", "", "", "", "", "", "", "", ""],
+    canplay:true
   }
 };
 
@@ -47,6 +52,15 @@ export default function reducer(state = initialState, action) {
         xox:{
           show:action.payload.show,
           roomcode:action.payload.roomcode,
+        },
+      }  
+    case "SETBOARD":
+      return{
+        ...state,
+        // board:action.payload.board,
+        xoxcontrol:{
+          board:action.payload.board,
+          canplay:action.payload.canplay,
         },
       }  
     default:
