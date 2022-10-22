@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from "../styles/Xox.module.css";
 
 function Xoxboard({ socket, roomcode }) {
-    // const[board,setBoard]=useState(["","","","","","","","",""])
+    const[board,setBoard]=useState(["","","","","","","","",""])
     // const[canplay,setCanplay]=useState(true)
     const xoxcontrol = useSelector((state) => state.xoxcontrol);
     console.log(xoxcontrol.board)
     const dispatch = useDispatch();
     useEffect(()=>{
         socket.on("updategame",(id)=>{
+          console.log(id)
           dispatch({
             type: "SETBOARD",
             payload: {
@@ -17,7 +18,7 @@ function Xoxboard({ socket, roomcode }) {
               canplay: true,
             },
           });
-          // setBoard((data)=>({...data,[id]:"O"}))
+          setBoard((data)=>({...data,[id]:"O"}))
           // setCanplay(true)
         })
         return () => socket.off("updategame");
@@ -32,7 +33,7 @@ function Xoxboard({ socket, roomcode }) {
               canplay: false,
             },
           });
-          // setBoard((data)=>({...data,[id]:"X"}))
+          setBoard((data)=>({...data,[id]:"X"}))
           socket.emit("play",{id,roomcode})
           // setCanplay(false)
         }
