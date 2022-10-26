@@ -9,6 +9,20 @@ function Xoxboard({ socket, roomcode }) {
           setBoard((data)=>({...data,[id]:"O"}))
           setCanplay(true)
         })
+        if (
+          (board[0] === "X" && board[1] === "X" && board[2] === "X") ||
+          (board[0] === "O" && board[1] === "O" && board[2] === "O") ||
+          (board[3] === "X" && board[4] === "X" && board[5] === "X") ||
+          (board[3] === "O" && board[4] === "O" && board[5] === "O") ||
+          (board[6] === "X" && board[7] === "X" && board[8] === "X") ||
+          (board[6] === "O" && board[7] === "O" && board[8] === "O") ||
+          (board[0] === "X" && board[4] === "X" && board[8] === "X") ||
+          (board[0] === "O" && board[4] === "O" && board[8] === "O") ||
+          (board[6] === "X" && board[4] === "X" && board[2] === "X") ||
+          (board[6] === "O" && board[4] === "O" && board[2] === "O")
+        ) {
+          setBoard(["", "", "", "", "", "", "", "", ""]);
+        }
         return () => socket.off("updategame");
       })
       const handleCellClick=(e)=>{
@@ -18,12 +32,20 @@ function Xoxboard({ socket, roomcode }) {
           socket.emit("play",{id,roomcode})
           setCanplay(false)
         }
-        if (
-          (board[0] === "X" && board[1] === "X" && board[2] === "X") ||
-          (board[0] === "O" && board[1] === "O" && board[2] === "O")
-        ) {
-          setBoard(["", "", "", "", "", "", "", "", ""]);
-        }
+        // if (
+        //   (board[0] === "X" && board[1] === "X" && board[2] === "X") ||
+        //   (board[0] === "O" && board[1] === "O" && board[2] === "O") ||
+        //   (board[3] === "X" && board[4] === "X" && board[5] === "X") ||
+        //   (board[3] === "O" && board[4] === "O" && board[5] === "O") ||
+        //   (board[6] === "X" && board[7] === "X" && board[8] === "X") ||
+        //   (board[6] === "O" && board[7] === "O" && board[8] === "O") ||
+        //   (board[0] === "X" && board[4] === "X" && board[8] === "X") ||
+        //   (board[0] === "O" && board[4] === "O" && board[8] === "O") ||
+        //   (board[6] === "X" && board[4] === "X" && board[2] === "X") ||
+        //   (board[6] === "O" && board[4] === "O" && board[2] === "O")
+        // ) {
+        //   setBoard(["", "", "", "", "", "", "", "", ""]);
+        // }
       }
     return (
         <>
