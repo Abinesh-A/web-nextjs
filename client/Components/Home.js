@@ -26,15 +26,15 @@ export default function Home() {
           <div className={styles.column1}>
             <div className={styles.dream}>
               <div className={styles.word1}>
-                <span>△</span>
+                <span style={{fontWeight:"900"}}>△</span>
                 <span>X</span>
               </div>
               <div className={styles.word2}>
                 <span>O</span>
-                <span>▽</span>
+                <span style={{fontWeight:"900"}}>▽</span>
               </div>
               <div className={styles.word3}>
-                <span>▢</span>
+                <span style={{fontWeight:"900"}}>▢</span>
               </div>
             </div>
             {/* <div className={styles.maintext}>
